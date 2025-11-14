@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Exercicio 1</h2>
+    <hr>
+    <h5 id = "tituloAleatorio">AMEMMMMM IRMÃOSS</h5>
+
+    <!-- <button onclick="mudaCor()">Mudar cor</button>
+
+    <button onclick="voltaCor()">voltar cor</button> -->
+    
+    <h2>Exercicio 4</h2>
+    <hr>
+
+    <p id="paragrafo">0</p>
+
+    <button id="contar">CONTAR</button>
+
+    <button id="resetar">RESETAR</button>
+
+    <h2>Exercicio 5</h2>
+    <hr>
+
+    <ul id="Pokemons"> 
+        <li>Pikachu</li>
+        <li>Charmander</li>
+        <li>Squirtle</li>
+        <li>Bulbasaur</li>
+    </ul>
+
+    <button id="addPokemon">Adicionar</button>
+
+    <h2>Exercicio 6</h2>
+    <hr>
+    
+    <h5>Gerador de nome aleatorio</h5>
+    <p id = "nomeAleatorio">bla bla bla</p>
+    <button id="geradorNomeAleatorio">Gerar nome</button>
+
+    <h2>Exercicio 7</h2>
+    <hr>
+
+    <p id="reacaoWaddles">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui numquam fugiat non quidem, sit expedita magnam dolores nostrum ullam labore molestias assumenda incidunt facilis doloremque corporis blanditiis cumque ipsum accusantium.</p>
+
+    <img id="waddles" width="200px" src="pngwing.com.png" alt="waddles">
+
+    <p id="resposta-waddles"></p>
+
+    <h2>Exercicio 8</h2>
+    <hr>
+
+    <input type="text" name="sorvete" id="sorvete" placeholder="Digite um sabor de sorvete">
+
+    
+    <div class="mostrador">
+        
+        
+    </div>
+    <h2>Exercicio 9</h2>
+    <hr>
+    <button class="botao">MODO ESCURO</button>
+
+    <h2>Exercicio 10</h2>
+    <hr>
+    <div>
+        <img src="" alt="Imagem" class="imagem">
+    </div>
+    
+    <h2>Exercicio 11</h2>
+    <hr>
+
+    <form action="" onsubmit="return processarFormulario()">
+        <input type="text" name="nome" id="nome" placeholder="Digite seu nome...">
+        <input type="text" name="email" id="email" placeholder="Digite seu email...">
+        <input type="password" name="senha" id="senha" placeholder="Crie uma senha...">
+        <input type="password" name="confirmacaoSenha" id="confirmacaoSenha" placeholder="Confirme sua senha..."> 
+        <input type="submit" name="enviar" id="enviar" value="Enviar">
+    </form>
+
+    <div>
+        <input type="checkbox" onclick="mostrarSenha()">Mostrar Senha
+    </div>
+
+    <script>
+
+        let contador = 0
+
+        const textos = [
+            'Amém irmãs',
+            'Amém irmãos',
+            'Amém irmãos e irmãs',
+            'Amém irmãos e irmãs, amém',
+            'Amém irmãos e irmãs, amém, aleluia',
+            'Amém irmãos e irmãs, amém, aleluia, glória a Deus',
+            'Amém irmãos e irmãs, amém, aleluia, glória a Deus, Jesus te ama',
+            'seja bem vindo ao meu site, Jesus te ama',
+            'seja bem vindo ao meu site, Jesus te ama, Deus te abençoe'
+        ]
+
+        let paragrafo = document.getElementById('paragrafo')
+        let botaoContar = document.getElementById('contar')
+        let botaoResetar = document.getElementById('resetar')
+
+
+
+        let titulo = document.querySelector('#tituloAleatorio')
+        // titulo.innerText = 'Seu título foi hackeado.'
+        titulo.style.color = 'rgb(' + Math.random() * 255 + ',' + Math.random() * 255 + ',' + Math.random() * 255 + ')'
+        titulo.style.fontSize = 30+Math.random ()*100+'px'
+        
+        
+        const textoAleatorio = textos[Math.floor(Math.random() * textos.length)]
+        titulo.innerText = textoAleatorio
+
+
+        botaoContar.addEventListener("click", () => {
+            contador++
+            paragrafo.innerText = contador
+
+        });
+
+        botaoResetar.addEventListener("click", () => {
+            contador = 0
+            paragrafo.innerText = contador
+        })
+
+        //Exercicio 5
+        let listaPokemons = document.getElementById('Pokemons')
+        let botaoAddPokemon = document.getElementById('addPokemon')
+
+        botaoAddPokemon.addEventListener("click", () => {
+            let novoPokemon = prompt('Qual pokemon você quer adicionar?')
+            
+            let itemLista = document.createElement('li')
+
+            itemLista.innerText = novoPokemon
+            listaPokemons.appendChild(itemLista)
+        })
+
+        //Exercicio 6
+        let botaoGeradorNomeAleatorio = document.getElementById('geradorNomeAleatorio')
+        let nomeAleatorio = document.getElementById('nomeAleatorio');
+
+        const titles = ["Sr.", "Mister", "Dom", "Lord", "Lady", "Capitão", "Dama"];
+        const names = ["Arthur", "Gwendolyn", "Merlin", "Lancelot", "Morgana", "Ragnar", "Éowyn"];
+        const classes = ["Mago", "Paladino", "Arqueiro", "Ladino", "Bárbaro", "Feiticeiro", "Cavaleiro"];
+        const locations = ["Valfenda", "Gondor", "Asgard", "Camelot", "Nárnia", "Babilônia", "Atlantis"];
+
+
+        
+        
+        botaoGeradorNomeAleatorio.addEventListener("click", () => {
+            
+            let title = titles[Math.floor(Math.random() * 6)]
+            
+            let name = names[Math.floor(Math.random() * 6)]
+            
+            let classe = classes[Math.floor(Math.random() * 6)]
+            
+            let local = locations[Math.floor(Math.random() * 6)]
+            
+            let referencia = title + " " + name + ", " + classe + " de " + local; 
+            
+            nomeAleatorio.innerText = referencia;
+
+        })
+
+        //exercicio 7 
+
+         let reacaowaddles = document.getElementById('reacaoWaddles')
+        reacaowaddles.innerText = 'Olá, Mundo'
+        
+      
+
+        let respostaWaddles = document.querySelector('#resposta-waddles')
+
+
+        let waddles = document.querySelector('img')
+
+        waddles.addEventListener("mousemove", () => {
+            respostaWaddles.innerText = "Isso faz cócegas."
+        })
+
+        waddles.addEventListener("mouseenter", () => {
+            respostaWaddles.innerText = "Você está muito perto"
+        })
+
+        waddles.addEventListener("mouseleave", () => {
+            respostaWaddles.innerText = "Ahhhhhh"
+        })
+
+        waddles.addEventListener("drag", () => {
+            respostaWaddles.innerText = "Para onde você está me levando??"
+        })
+        
+
+
+    </script>
+
+    
+    <script>
+        //exercicio 8
+        let input = document.querySelector("#sorvete")
+        let mostrador = document.querySelector(".mostrador")
+        let botao = document.querySelector(".botao")
+        let body = document.querySelector("body")
+
+        input.addEventListener("input", () => {
+            if(input.value == "chocolate"){
+                mostrador.innerHTML = "<h1>Eu amo sorvete de chocolate!</h1>"
+            }
+
+            else{
+                if(input.value == "flocos"){
+                    mostrador.innerHTML = "<h1>Ahh, mas chocolate é o meu favorito...</h1>"
+                }
+
+                else{
+                    mostrador.innerHTML = "<h1>Ahh, eu esperava um sabor de sorvete...</h1>"
+                }
+            }
+        })
+        
+        botao.addEventListener("click", () => {
+
+
+            if(botao.innerText == "MODO ESCURO"){
+                
+                botao.innerText = "MODO CLARO"
+
+                body.style.backgroundColor = 'black'
+                body.style.color = 'gray'
+
+                botao.style.backgroundColor = 'gray'
+                botao.style.color = 'black'
+
+                input.style.backgroundColor = 'black'
+                input.style.color = 'gray'
+            }
+
+            else if(botao.innerText == "MODO CLARO"){
+
+            
+                botao.innerText = "MODO ESCURO"
+
+                body.style.backgroundColor = 'white'
+                body.style.color = 'black'
+
+                botao.style.backgroundColor = '#f0f0f0'
+                botao.style.border.color = 'gray'
+                botao.style.color = 'black'
+
+                input.style.backgroundColor = 'white'
+                input.style.color = 'black'
+            }
+            
+        })
+    </script>
+
+    <script>
+
+        // exercicio 10
+
+        const imagens = [
+            "https://picsum.photos/id/237/600/400",
+            "https://picsum.photos/id/238/600/400",
+            "https://picsum.photos/id/239/600/400",
+            "https://picsum.photos/id/240/600/400"
+        ]
+        
+        let imagem = document.querySelector(".imagem")
+        let contadorImagem = 0;
+
+        function trocarImagem(){
+            
+            imagem.src = imagens[contadorImagem]
+            contadorImagem++
+
+            if(contadorImagem == 4){
+                contadorImagem = 0
+                console.log(contadorImagem)
+            }
+            
+            setTimeout(trocarImagem, 5000)
+        }
+
+        
+        trocarImagem()
+        
+    </script>
+
+    <script>
+
+        // exercicio 11
+
+        let nome = document.querySelector("#nome")
+        let email = document.querySelector("#email")
+        let senha = document.querySelector("#senha")
+        let confirmacaoSenha = document.querySelector("#confirmacaoSenha")
+
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+        const senhaRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/
+        function processarFormulario(){
+            if(nome.value.length < 3){
+                alert("O nome deve ter ao menos 3 caracteres.")
+                return false
+            }
+
+            if(!emailRegex.test(email.value)){
+                alert("Você deve inserir um email válido")
+                return false
+            }
+
+            if(senha.value.length < 8){
+                alert("Sua senha deve ter ao menos 8 caracteres.")
+                return false
+            }
+            else if(!senhaRegex.test(senha.value)){
+                alert("Sua senha deve ter ao menos uma letra maiúscula, um número e um caracter especial.")
+                return false
+            }
+
+            if(senha.value !== confirmacaoSenha.value){
+                alert("As senhas não batem.")
+                return false
+            }
+
+            alert("Formulário enviado com sucesso!")
+            return true
+        }
+
+        function mostrarSenha(){
+            if(senha.type === "password"){
+                senha.type = "text"
+                confirmacaoSenha.type = "text"
+            }
+
+            else{
+                senha.type = "password"
+                confirmacaoSenha.type = "password"
+            }
+        }
+    </script>
+</body>
+</html>
